@@ -10,10 +10,9 @@ const Home = () => {
         <div>
             <SignedIn>
                 {/* Show the UserButton when signed in */}
-                <UserButton afterSignOutUrl="/sign-in" />
+                <UserButton />
             </SignedIn>
             <SignedOut>
-                {/* Redirect to /sign-in when signed out */}
                 <RedirectToSignIn />
             </SignedOut>
         </div>
