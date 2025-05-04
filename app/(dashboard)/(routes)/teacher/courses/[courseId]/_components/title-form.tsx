@@ -48,7 +48,7 @@ export const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
         console.log(values);
         try {
             await axios.patch(`/api/courses/${courseId}`, values);
-            toast.success('Saved');
+            toast.success('Updated');
             toggleEdit();
             router.refresh();
         } catch (error) {
@@ -57,7 +57,7 @@ export const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
     };
 
     return (
-        <div className="mt-6 border bg-slate-100 rounded-md p-4">
+        <div className="mt-6 border bg-sky-50 rounded-md p-4">
             <div className="font-medium flex items-center justify-between">
                 Course title
                 <Button onClick={toggleEdit} variant="ghost">
