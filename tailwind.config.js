@@ -1,4 +1,6 @@
-module.exports = {
+const { withUt } = require('uploadthing/tw');
+
+module.exports = withUt({
     content: [
         './app/**/*.{js,ts,jsx,tsx}',
         './pages/**/*.{js,ts,jsx,tsx}',
@@ -8,4 +10,4 @@ module.exports = {
         extend: {},
     },
     plugins: [],
-};
+});
