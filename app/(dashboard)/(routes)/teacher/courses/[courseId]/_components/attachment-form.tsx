@@ -58,7 +58,7 @@ export const AttachmentForm = ({
     return (
         <div className="mt-6 border bg-sky-50 rounded-md p-4">
             <div className="font-medium flex items-center justify-between mb-1">
-                Course attachments
+                Optional attachments
                 <Button onClick={toggleEdit} variant="ghost">
                     {isEditing && <>Cancel</>}
                     {!isEditing && (

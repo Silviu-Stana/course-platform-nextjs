@@ -7,19 +7,17 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 
-interface ChapterActionsProps {
+interface CourseActionsProps {
     disabled: boolean;
     courseId: string;
-    chapterId: string;
     isPublished: boolean;
 }
 
-export const ChapterActions = ({
+export const CourseActions = ({
     disabled,
     courseId,
-    chapterId,
     isPublished,
-}: ChapterActionsProps) => {
+}: CourseActionsProps) => {
     const [isDeleting, setIsDeleting] = useState(false);
     const [isPublishing, setIsPublishing] = useState(false);
     const router = useRouter();
@@ -28,15 +26,11 @@ export const ChapterActions = ({
         try {
             setIsPublishing(true);
             if (isPublished) {
-                await axios.patch(
-                    `/api/courses/${courseId}/chapters/${chapterId}/unpublish`
-                );
-                toast.success('Unpublished');
+                await axios.patch(`/api/courses/${courseId}/unpublish`);
+                toast.success('Course Unpublished');
             } else {
-                await axios.patch(
-                    `/api/courses/${courseId}/chapters/${chapterId}/publish`
-                );
-                toast.success('Published');
+                await axios.patch(`/api/courses/${courseId}/publish`);
+                toast.success('Course Published');
             }
 
             router.refresh();
@@ -50,11 +44,10 @@ export const ChapterActions = ({
     const onDelete = async () => {
         try {
             setIsDeleting(true);
-            await axios.delete(
-                `/api/courses/${courseId}/chapters/${chapterId}`
-            );
-            toast.success('Chapter Deleted');
-            router.push(`/teacher/courses/${courseId}`);
+            await axios.delete(`/api/courses/${courseId}`);
+
+            toast.success('Course Deleted');
+            router.push(`/teacher/courses`);
         } catch (error) {
             toast.error('Something went wrong');
         } finally {

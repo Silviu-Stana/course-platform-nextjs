@@ -11,26 +11,34 @@ import {
     AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 
-interface ConfirmModalProps {
+interface ConfirmDeleteModalProps {
     children: React.ReactNode;
     onConfirm: () => void;
 }
 
-export const ConfirmModal = ({ children, onConfirm }: ConfirmModalProps) => {
+export const ConfirmDeleteModal = ({
+    children,
+    onConfirm,
+}: ConfirmDeleteModalProps) => {
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild>{children}</AlertDialogTrigger>
             <AlertDialogContent>
                 <AlertDialogHeader>
-                    <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+                    <AlertDialogTitle>
+                        Are you sure you want to Delete?
+                    </AlertDialogTitle>
                     <AlertDialogDescription>
                         This action cannot be undone.
                     </AlertDialogDescription>
                 </AlertDialogHeader>
-                <AlertDialogFooter>
+                <AlertDialogFooter className="flex justify-center">
                     <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction onClick={onConfirm}>
-                        Continue
+                    <AlertDialogAction
+                        onClick={onConfirm}
+                        className="bg-red-700"
+                    >
+                        Delete
                     </AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
