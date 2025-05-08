@@ -11,12 +11,10 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import Link from 'next/link';
+import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
 
-type CourseWithEmoji = Omit<Course, 'isPublished'> & {
-    isPublished: string;
-};
-
-export const columns: ColumnDef<CourseWithEmoji>[] = [
+export const columns: ColumnDef<Course>[] = [
     {
         accessorKey: 'title',
         header: ({ column }) => {
@@ -28,7 +26,7 @@ export const columns: ColumnDef<CourseWithEmoji>[] = [
                     }
                 >
                     Title
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                    <ArrowUpDown className="h-4 w-4" />
                 </Button>
             );
         },
@@ -44,7 +42,7 @@ export const columns: ColumnDef<CourseWithEmoji>[] = [
                     }
                 >
                     Price
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                    <ArrowUpDown className="h-4 w-4" />
                 </Button>
             );
         },
@@ -60,8 +58,17 @@ export const columns: ColumnDef<CourseWithEmoji>[] = [
                     }
                 >
                     Published
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                    <ArrowUpDown className="h-4 w-4" />
                 </Button>
+            );
+        },
+        cell: ({ row }) => {
+            const isPublished = row.getValue('isPublished') || false;
+
+            return (
+                <Badge className={cn('bg-transparent text-md')}>
+                    {isPublished ? '✅' : '❌'}
+                </Badge>
             );
         },
     },
