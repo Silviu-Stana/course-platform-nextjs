@@ -70,7 +70,7 @@ export const ChapterAccessForm = ({
     return (
         <div className="mt-6 border bg-sky-50 rounded-md p-4">
             <div className="font-medium flex items-center justify-between">
-                Price
+                Is chapter free?
                 <Button
                     onClick={toggleEdit}
                     variant="link"

@@ -65,10 +65,8 @@ export const CourseActions = ({
             >
                 {isPublishing ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
-                ) : isPublished ? (
-                    'Unpublish'
                 ) : (
-                    'Publish'
+                    <span>{isPublished ? 'Unpublish' : 'Publish'}</span>
                 )}
             </Button>
             <ConfirmDeleteModal onConfirm={onDelete}>
