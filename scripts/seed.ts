@@ -12,7 +12,7 @@ async function main() {
                 { name: 'C#' },
                 { name: 'Statistics' },
                 { name: 'Math' },
-                { name: 'Graph Theory' },
+                { name: 'Graphs' },
             ],
         });
 
