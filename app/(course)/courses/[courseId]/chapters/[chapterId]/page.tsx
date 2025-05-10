@@ -1,15 +1,13 @@
 import { getChapter } from '@/actions/get-chapter';
 import { Banner } from '@/components/banner';
 import { auth } from '@clerk/nextjs/server';
-import { get } from 'http';
 import { redirect } from 'next/navigation';
-import React, { use } from 'react';
+import React from 'react';
 import { VideoPlayer } from './_components/video-player';
 import { CourseEnrollButton } from './_components/course-enroll-button';
 import { Separator } from '@/components/ui/separator';
 import { Preview } from '@/components/preview';
 import { File } from 'lucide-react';
-import { CourseProgress } from '@/components/course-progress';
 import { CourseProgressButton } from './_components/course-progress';
 
 const ChapterIdPage = async ({
@@ -20,7 +18,7 @@ const ChapterIdPage = async ({
     const { userId } = await auth();
     if (!userId) return redirect('/');
 
-    const { courseId, chapterId } = await params;
+    const { courseId, chapterId } = params;
 
     const {
         chapter,
