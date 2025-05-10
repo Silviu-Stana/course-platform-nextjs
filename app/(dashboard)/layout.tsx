@@ -1,9 +1,6 @@
 import React from 'react';
 import { Sidebar } from './_components/sidebar';
 import Navbar from './_components/navbar';
-import { isTeacher } from '@/lib/teacher';
-import { redirect } from 'next/navigation';
-import { auth } from '@clerk/nextjs/server';
 
 const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
     return (
