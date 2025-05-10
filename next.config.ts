@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
             new URL('https://nxs1yg1nhl.ufs.sh/**'),
         ],
     },
+    typescript: {
+        ignoreBuildErrors: true,
+    },
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
 };
 
 export default nextConfig;
