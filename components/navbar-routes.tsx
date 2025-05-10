@@ -1,7 +1,7 @@
 'use client';
 import { useAuth, UserButton } from '@clerk/nextjs';
 import { usePathname } from 'next/navigation';
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Button } from './ui/button';
 import { LogOut } from 'lucide-react';
 import Link from 'next/link';
@@ -21,7 +21,9 @@ export const NavbarRoutes = () => {
         <>
             {isSearchPage && (
                 <div className="hidden! md:block!">
-                    <SearchInput />
+                    <Suspense fallback={<div>Loading search input...</div>}>
+                        <SearchInput />
+                    </Suspense>
                 </div>
             )}
             <div className="flex gap-x-2 ml-auto">
