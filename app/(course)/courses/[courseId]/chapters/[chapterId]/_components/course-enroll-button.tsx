@@ -1,10 +1,8 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import { formatPrice } from '@/lib/format';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
-import { set } from 'react-hook-form';
 import toast from 'react-hot-toast';
 
 interface CourseEnrollButtonProps {

@@ -1,25 +1,24 @@
 import { auth } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
+import { db } from '@/lib/db'; // Ensure this path is correct based on your project structure
 
-export async function GET(
+export async function POST(
     req: Request,
     { params }: { params: { courseId: string } }
 ) {
-    const { courseId } = params;
-
     try {
-        const userId = await auth();
+        const { userId } = await auth();
         if (!userId) {
             return new NextResponse('Unauthorized', { status: 400 });
         }
 
-        if (!courseId) {
+        if (!params.courseId) {
             return new NextResponse('Course ID is required', { status: 400 });
         }
 
         const purchase = await db.purchase.create({
             data: {
-                courseId,
+                courseId: params.courseId,
                 userId,
             },
         });
