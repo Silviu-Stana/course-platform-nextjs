@@ -7,12 +7,12 @@ import { usePathname } from 'next/navigation';
 const guestRoutes = [
     {
         icon: Layout,
-        label: 'Dashboard',
+        label: 'Cursurile Mele',
         href: '/',
     },
     {
         icon: Compass,
-        label: 'Find Course',
+        label: 'Gaseste Un Curs',
         href: '/search',
     },
 ];
@@ -20,12 +20,12 @@ const guestRoutes = [
 const teacherRoutes = [
     {
         icon: List,
-        label: 'Course',
+        label: 'Creaza Un Curs',
         href: '/teacher/courses',
     },
     {
         icon: BarChart,
-        label: 'Analytics',
+        label: 'Analitice',
         href: '/teacher/analytics',
     },
 ];

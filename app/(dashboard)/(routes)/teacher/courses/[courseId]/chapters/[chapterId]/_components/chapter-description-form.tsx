@@ -68,7 +68,7 @@ export const ChapterDescriptionForm = ({
     return (
         <div className="mt-6 border bg-sky-50 rounded-md p-4">
             <div className="font-medium flex items-center justify-between">
-                Course description
+                Chapter description
                 <Button
                     onClick={toggleEdit}
                     variant="link"
